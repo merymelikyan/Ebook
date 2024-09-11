@@ -1,0 +1,118 @@
+
+# from django.db import models
+
+
+# class HeaderText (models.Model):
+#     title = models.CharField(max_length=255)
+#     description = models.TextField(max_length=255)
+#     image = models.ImageField(upload_to="header_text")
+
+#     def __str__(self):
+#         return self.title
+
+#     class Meta:
+#         verbose_name = "Header Text"
+#         verbose_name_plural = "Header Texts"
+ 
+
+# class FooterText(models.Model):
+#     text = models.CharField(max_length=255)
+
+#     def __str__(self):
+#         return self.text
+
+#     class Meta:
+#         verbose_name = "Footer Text"
+#         verbose_name_plural = "Footer Text"
+
+
+# # class Avatars(models.Model):
+# #     image = models.ImageField(upload_to="avatars")
+
+# #     def __str__(self):
+# #         return str(self.image)
+
+# #     class Meta:
+# #         verbose_name = "Avatars"
+# #         verbose_name_plural = "Avatars"
+
+
+    # avatar1 = models.ImageField(upload_to='avatars/')
+    # avatar2 = models.ImageField(upload_to='avatars/')
+    # avatar3 = models.ImageField(upload_to='avatars/')
+    # avatar4 = models.ImageField(upload_to='avatars/')
+
+    # def __str__(self):
+    #     return f"Avatars: {self.id}"
+    
+
+# # class Reviews(models.Model):
+# #     reviews_stars = models.FloatField()
+# #     reviews_small = models.CharField(max_length=255)
+
+# #     def __str__(self):
+# #       return f"{self.reviews_stars} - {self.reviews_smoll}"
+
+
+# #     class Meta:
+# #         verbose_name = "reviews"
+# #         verbose_name_plural = "reviews"
+
+
+# # class BookSection(models.Model):
+# #     tag = models.CharField(max_length=255)
+# #     title = models.CharField(max_length=255)
+# #     description = models.TextField(max_length=255)
+
+# #     def __str__(self):
+# #         return self.tag
+
+# #     class Meta:
+# #         verbose_name = "Book Section"
+# #         verbose_name_plural = "Book Sections"
+
+
+
+
+# from django.contrib import admin
+
+# from .models import (
+#     HeaderText,
+#     FooterText
+
+# )
+ 
+# admin.site.register(HeaderText)
+# admin.site.register(FooterText)
+
+
+# from .models import (
+#     HeaderText,
+#     FooterText, 
+#     # Avatars,
+#     # Reviews,
+#     # BookSection
+# )    
+
+# def index(request):
+#     context = {
+#           "header_text": HeaderText.objects.all(),
+#           "footer_text": FooterText.objects.all().first(),
+#           # "avatars": Avatars.objects.all(),
+#           # "reviews": Reviews.objects.all(),
+#           # "bookstation": BookSection.objects.all()
+#     }      
+
+#     return render(request,"base.html", context )
+
+
+
+
+
+#cor UnicodeTranslateError
+# from django.urls import path, include
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#      path("", include("app.urls")),
+# ]
