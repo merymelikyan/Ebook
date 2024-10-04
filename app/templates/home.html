@@ -1,0 +1,355 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block home_template %}
+  <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 col-12 mb-5 pb-5 pb-lg-0 mb-lg-0">
+
+                <h6>{{header_text.0.title}}</h6>
+
+                <h1 class="text-white mb-4">{{header_text.0.description}}</h1>
+
+                <a href="#section_2" class="btn custom-btn smoothscroll me-3">Discover More</a>
+
+                <a href="#section_3" class="link link--kale smoothscroll">Meet the Author</a>
+            </div>
+
+            <div class="hero-image-wrap col-lg-6 col-12 mt-3 mt-lg-0">
+                <img src="{{phon_image.image.url}}" class="hero-image img-fluid" alt="education online books">
+            </div>
+
+        </div>
+    </div>
+  </section>
+   
+
+  <section class="featured-section">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-8 col-12">
+                <div class="avatar-group d-flex flex-wrap align- items-center">
+               
+                  {% for avatar in avatars %}
+                      <img class="img-fluid avatar-image" src="{{avatar.image.url }}"  alt="">
+                  {% endfor %}
+                  
+                  <div class="reviews-group mt-3 mt-lg-0"> 
+                    
+                  {% for reviews in reviews %}
+                    <strong> {{reviews.stars}} </strong>
+                    <i class="{{reviews.reviews_class1}}"></i>
+                    <i class="{{reviews.reviews_class2}}"></i>
+                    <i class="{{reviews.reviews_class3}}"></i>
+                    <i class="{{reviews.reviews_class4}}"></i>
+                    <i class="{{reviews.reviews_class5}}"></i>
+                    <small class="ms-3"> {{reviews.total}} reviews</small>
+                  {% endfor %}
+                  </div>  
+                       
+                   
+                          {% comment %} {% for star in "12345" %}
+                            {% if star <= review_stars|floatformat:0 %}
+                                <!-- Full star for whole numbers -->
+                                <i class="fas fa-star"></i>
+                            {% elif star == review_stars|floatformat:1 %}
+                                <!-- Half star for fractional part -->
+                                <i class="bi-star-half-alt"></i>
+                            {% else %}
+                                <!-- Empty star for the rest -->
+                                <i class="bi-star"></i>
+                            {% endif %}
+                          {% endfor %} {% endcomment %}
+                      
+                      {% comment %} {% for i in "12345" %}
+                          {% if reviews.stars >= i %}
+                              <i class="bi-star-fill"></i>
+                          {% elif reviews.stars >= i|floatformat:1 %}
+                              <i class="bi-star-half"></i>
+                          {% else %}
+                              <i class="bi-star"></i>
+                          {% endif %}
+                      {% endfor %} {% endcomment %}
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+
+  <section class="py-lg-5"></section>
+
+
+  <section class="book-section section-padding" id="section_2">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 col-12">
+              <img src="{{modern.image.url}}" class="img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-6 col-12">
+                <div class="book-section-info">
+                    <h6>{{modern.tag}}</h6>
+
+
+                    <h2 class="mb-4">{{modern.title}}</h2>
+
+                    <p>{{modern.text1}} <a rel="nofollow" href="{{modern.link_url}}" target="_blank">{{modern.link_name}}</a> {{modern.text2}}</p>
+
+                    <p>{{modern.description}}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-12 text-center">
+                <h6>{{inside.tag}}</h6>
+
+                <h2 class="mb-5">{{inside.title}}</h2>
+            </div>
+
+            <div class="col-lg-4 col-12">
+                <nav id="navbar-example3" class="h-100 flex-column align-items-stretch">
+                    <nav class="nav nav-pills flex-column">
+                      {% for charter in charters %}
+                        {% comment %} <a class="nav-link smoothscroll" href="{{charters.0.html_url}}">{{charters.0.title}}</a>
+
+                        <a class="nav-link smoothscroll" href="{{charter.1.html_url}}">{{charters.1.title}} <strong>{{charters.1.text}}</strong></a>
+
+                        <a class="nav-link smoothscroll" href="{{charter.2.html_url}}">{{charters.2.title}} <strong>{{charters.2.text}}</strong></a>
+
+                        <a class="nav-link smoothscroll" href="{{charter.3.html_url}}">{{charters.3.title}} <strong>{{charters.3.text}}</strong></a> {% endcomment %}
+
+                        <a class="nav-link smoothscroll" href="{{charter.html_url}}">{{charter.title}} <strong>{{charter.text}}</strong></a>
+                      {% endfor %}    
+                    </nav>
+                </nav>
+            </div>
+
+            <div class="col-lg-8 col-12">
+                <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
+                    <div class="scrollspy-example-item" id="item-1">
+                        <h5>{{introducing.title}}</h5>
+
+                        <p>{{introducing.description}}</p>
+
+                        <p><strong>{{introducing.quastion}}</strong> {{introducing.answer}}</p>
+
+                        <blockquote class="blockquote">{{introducing.blockquote}}</blockquote>
+
+                        <p>{{introducing.note}}</p>
+                    </div>
+
+                    <div class="scrollspy-example-item" id="item-2">
+                        <h5>{{winback.title}}</h5>
+
+                        <p>{{winback.description1}}</p>
+
+                        <p>{{winback.description2}}</p>
+
+                        <p>{{winback.description3}}</p>
+
+                        <div class="row">
+                            <div class="col-lg-6 col-12 mb-3">
+                                <img src="{{winback.image1.url}}" class="scrollspy-example-item-image img-fluid" alt="">
+                            </div>
+
+                            <div class="col-lg-6 col-12 mb-3">
+                                <img src="{{winback.image2.url}}" class="scrollspy-example-item-image img-fluid" alt="">
+                            </div>
+                        </div>
+
+                        <p>{{winback.note}}</p>
+                    </div>
+
+                    <div class="scrollspy-example-item" id="item-3">
+                        <h5>{{workless.title}}</h5>
+
+                        <p>{{workless.title}}<a rel="nofollow" href="{{workless.link_url}}" target="_blank">{{workless.link_name}}</a> {{workless.text2}}</p>
+                        <p>{{workless.description1}}</p>
+
+                        <p>{{workless.description2}}</p>
+
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 col-12">
+                                <img src="{{workless.image.url}}" class="img-fluid" alt="">
+                            </div>
+
+                            <div class="col-lg-6 col-12">
+                                <p>{{modernebook.title}}</p>
+
+                                <p><strong>{{modernebook.description}}</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="scrollspy-example-item" id="item-4">
+                        <h5>{{delegate.title}}</h5>
+
+                        <p>{{delegate.description1}}</p>
+
+                        <p>{{delegate.description2}}</p>
+
+                        <p>{{delegate.description3}}</p>
+
+                        <img src="{{delegate.image.url}}" class="scrollspy-example-item-image img-fluid mb-3" alt="">
+
+                        <p>{{delegate.note}}</p>
+                    </div>
+
+                    <div class="scrollspy-example-item" id="item-5">
+                        <h5>{{habits.title}}</h5>
+
+                        <p>{{habits.description1}}</p>
+
+                        <p>{{habits.description2}}</p>
+
+                        <p><strong>{{habits.quastion}}</strong> {{habits.ansver}}</p>
+
+                        <blockquote class="blockquote">{{habits.blockquote}}</blockquote>
+
+                        <p>{{habits.note}}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </section>
+
+
+  <section class="author-section section-padding" id="section_3">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 col-12">
+                <img src="{{meetauther.image.url}}" class="author-image img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-6 col-12 mt-5 mt-lg-0">
+                <h6>{{meetauther.tag}}</h6>
+
+                <h2 class="mb-4">{{meetauther.title}}</h2>
+
+                <p>{{meetauther.description1}}</p>
+
+                <p>{{meetauther.description2}}</p>
+            </div>
+
+        </div>
+    </div>
+  </section>
+
+  <section class="reviews-section section-padding" id="section_4">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-12 text-center mb-5">
+                <h6>{{allreviews.tag}}</h6>
+
+                <h2>{{allreviews.title}}</h2>
+            </div>
+
+            {% for reviews in reviews_members %}
+              <div class="col-lg-4 col-12">
+                <div class="custom-block d-flex flex-wrap">
+                    <div class="custom-block-image-wrap d-flex flex-column">
+          
+                        <img src="{{reviews.image.url}}" class="img-fluid avatar-image" alt="">
+
+                        <div class="text-center mt-3">
+                            <span class="text-white"> {{reviews.name}} </span>
+                            <strong class="d-block text-white"> {{reviews.position}} </strong>
+                        </div>
+                    </div>
+
+                    <div class="custom-block-info">
+                      <div class="reviews-group mb-3">
+                        <strong>{{reviews.stars}}</strong>
+                        
+                        <i class="{{reviews.reviews_class1}}"></i>
+                        <i class="{{reviews.reviews_class2}}"></i>
+                        <i class="{{reviews.reviews_class3}}"></i>
+                        <i class="{{reviews.reviews_class4}}"></i>
+                        <i class="{{reviews.reviews_class5}}"></i>
+                      </div>
+
+                      <p class="mb-0">{{reviews.description}}</p>
+                    </div>
+                </div>
+              </div>
+            {% endfor %}
+
+            {% comment %} <div class="col-lg-4 col-12 my-5 my-lg-0">
+                <div class="custom-block d-flex flex-wrap">
+                    <div class="custom-block-image-wrap d-flex flex-column">
+                        <img src="{{reviews_mambers.1.image.url}}" class="img-fluid avatar-image avatar-image-left" alt="">
+
+                        <div class="text-center mt-3">
+                            <span class="text-white">{{reviews_mambers.1.name}}</span>
+
+                            <strong class="d-block text-white">{{reviews_mambers.1.position}}</strong>
+                        </div>
+                    </div>
+
+                    <div class="custom-block-info">
+                        <div class="reviews-group mb-3">
+                            <strong>{{reviews_mambers.1.stars}}</strong>
+
+                            <i class="bi-star-fill"></i>
+                            <i class="bi-star-fill"></i>
+                            <i class="bi-star-fill"></i>
+                            <i class="bi-star"></i>
+                            <i class="bi-star"></i>
+                        </div>
+
+                        <p class="mb-0">{{reviews_mambers.1.description}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-12">
+                <div class="custom-block d-flex flex-wrap">
+                    <div class="custom-block-image-wrap d-flex flex-column">
+                        <img src="{{reviews_mambers.2.image.url}}" class="img-fluid avatar-image" alt="">
+
+                        <div class="text-center mt-3">
+                            <span class="text-white">{{reviews_mambers.2.name}}</span>
+
+                            <strong class="d-block text-white">{{reviews_mambers.2.position}}</strong>
+                        </div>
+                    </div>
+
+                    <div class="custom-block-info">
+                        <div class="reviews-group mb-3">
+                            <strong>{{reviews_mambers.2.stars}}</strong>
+
+                            <i class="bi-star-fill"></i>
+                            <i class="bi-star-fill"></i>
+                            <i class="bi-star-fill"></i>
+                            <i class="bi-star-fill"></i>
+                            <i class="bi-star-fill"></i>
+                        </div>
+
+                        <p class="mb-0">{{reviews_mambers.2.description}}</p>
+                    </div>
+                </div>
+            </div> {% endcomment %}
+
+        </div>
+    </div>
+  </section>
+
+{% endblock %}  
