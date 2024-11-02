@@ -8,10 +8,11 @@ def receive_message(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
-        
+        content = request.POST.get('content')
+
 
         if name and email :
-            Message.objects.create(name=name, email=email)
+            Message.objects.create(name=name, email=email, content=content)
             return JsonResponse({'status': 'success'})
         else:
             return JsonResponse({'status': 'error', 'message': 'Missing data'})

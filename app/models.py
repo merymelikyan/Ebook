@@ -214,7 +214,6 @@ class MeetAuther(models.Model):
         verbose_name_plural = "Meet Auther"
 
 
-      
 class AllReviews(models.Model):
     tag = models.CharField(max_length=255)
     title = models.CharField(max_length=255)
